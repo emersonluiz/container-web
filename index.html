@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" manifest="/container.manifest">
+    <head>
+        <title>Container Web</title>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+        <link href="assets/css/angular-material.css" rel="stylesheet" />
+        <link href="assets/css/md-data-table.min.css" rel="stylesheet" />
+        <link href="assets/css/material-icons.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+
+    </head>
+    <body ng-app="webApp">
+
+       <div data-ng-view></div>
+
+        <script src="assets/libs/angular.js"></script>
+        <script src="assets/libs/angular-animate.js"></script>
+        <script src="assets/libs/angular-aria.js"></script>
+        <script src="assets/libs/angular-material.js"></script>
+        <script src="assets/libs/md-data-table.min.js"></script>
+        
+        <script src="assets/libs/angular-messages.js"></script>
+        <script src="assets/libs/angular-cookies.js"></script>
+        <script src="assets/libs/angular-route.js"></script>
+        <script src="assets/libs/angular-sanitize.js"></script>
+        <script src="assets/libs/angular-resource.js"></script>
+
+       <script type="text/javascript" src="app/app.module.js"></script>
+       <script type="text/javascript" src="app/app.route.js"></script>
+
+       <script type="text/javascript" src="app/components/container/containerController.js"></script>
+       <script type="text/javascript" src="app/components/serviceOrder/serviceOrderController.js"></script>
+       <script type="text/javascript" src="app/components/serviceOrder/serviceOrderCreateController.js"></script>
+       <script type="text/javascript" src="app/components/authentication/loginController.js"></script>
+
+    </body>
+</html>

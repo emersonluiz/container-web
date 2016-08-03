@@ -1,0 +1,95 @@
+<!-- Top Block-->
+<div ng-include="'./app/components/shared/topbar.html'"></div>
+<!-- Top Block -->
+
+<div class="row">
+    <md-toolbar>
+        <div class="md-toolbar-tools md-whiteframe-z1">
+            <md-button class="md-icon-button" ng-href="#serviceOrder">
+                <md-icon aria-label="Edit" md-svg-icon="navigation:ic_arrow_back_24px"></md-icon>
+            </md-button>
+            <h3>
+                <span>Container</span>
+            </h3>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="open()" ng-hide="isOpenRight()">
+                <md-icon aria-label="teste" md-svg-icon="navigation:ic_menu_24px"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+</div>
+
+<div class="row" ng-cloak>
+  <md-content>
+    <md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndex">
+      <md-tab label="list">
+        <md-content class="md-padding">
+          <md-table-container>
+            <table md-table>
+                <thead md-head md-order="tableOrderField">
+                    <tr md-row>
+                        <th md-column md-order-by="container">Container</th>
+                        <th md-column>Tare</th>
+                        <th md-column>Status</th>
+                        <th md-column class="text-center">More</th>
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row ng-repeat="item in listcontainer | orderBy: tableOrderField">
+                        <td md-cell data-ng-bind="item.container"></td>
+                        <td md-cell data-ng-bind="item.tare"></td>
+                        <td md-cell data-ng-bind="item.status"></td>
+                        <td md-cell class="text-center">
+                            <md-button class="md-icon-button md-primary" ng-click="showMoreDialog(item)">
+                                <md-icon aria-label="Edit" md-svg-icon="navigation:ic_more_vert_24px"></md-icon>
+                            </md-button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+        </md-content>
+      </md-tab>
+      <md-tab label="add">
+        <md-content class="md-padding">
+
+            <!-- Form Block-->
+            <div ng-include="'./app/components/container/containerCreate.html'"></div>
+            <!-- Form Block -->
+
+        </md-content>
+      </md-tab>
+      <md-tab label="edit" ng-disabled="editDisabled" md-on-deselect="onDeselected()">
+        <md-content class="md-padding">
+            
+            <!-- Form Block-->
+            <div ng-include="'./app/components/container/containerCreate.html'"></div>
+            <!-- Form Block -->
+            
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+</div>
+
+<div layout="row" flex ng-show="toolBar">
+    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right" md-is-locked-open="false">
+        <md-toolbar>
+            <h1 class="md-toolbar-tools">Emerson System</h1>
+        </md-toolbar>
+        <md-content layout-padding>
+            <md-list>
+                <md-list-item>
+                    <md-button md-ink-ripple ng-href="#serviceOrder">
+                        <md-icon aria-label="Service Order" md-svg-icon="navigation:ic_menu_24px"></md-icon>Service Ordem
+                    </md-button>
+                </md-list-item>
+                <md-list-item>
+                    <md-button md-ink-ripple ng-href="#login">
+                        <md-icon aria-label="Logout" md-svg-icon="action:ic_exit_to_app_24px"></md-icon>Logout
+                    </md-button>
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </md-sidenav>
+</div>

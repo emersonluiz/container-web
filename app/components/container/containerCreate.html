@@ -1,0 +1,58 @@
+<form name="containerForm">
+
+<div layout-gt-sm="row">
+    <md-input-container class="md-block" flex-gt-sm>
+        <label>Terminal</label>
+        <md-select required md-no-asterisk ng-model="container.terminal" name="terminal" id="terminal">
+            <md-option value="brasmar">Brasmar</md-option>
+            <md-option value="brado">Brado</md-option>
+        </md-select>
+        <div ng-messages="containerForm.terminal.$error">
+            <div ng-message="required">This is required.</div>
+        </div>
+    </md-input-container>
+</div>
+
+<div layout-gt-sm="row">
+    <md-input-container class="md-block" flex-gt-sm>
+        <label>Container</label>
+        <input required md-no-asterisk ng-model="container.container" name="container" id="container">
+        <div ng-messages="containerForm.container.$error">
+            <div ng-message="required">This is required.</div>
+        </div>
+    </md-input-container>
+    <md-input-container class="md-block" flex-gt-sm>
+        <label>Size</label>
+        <md-select ng-model="container.size">
+            <md-option value="20">20</md-option>
+            <md-option value="40">40</md-option>
+        </md-select>
+    </md-input-container>
+    <md-input-container class="md-block" flex-gt-sm>
+        <label>Status</label>
+        <md-select ng-model="container.status">
+            <md-option value="aproved">Aproved</md-option>
+            <md-option value="reproved">Reproved</md-option>
+            <md-option value="manufactory">manufactory</md-option>
+        </md-select>
+    </md-input-container>
+</div>
+
+<div layout-gt-sm="row">
+    <md-input-container class="md-block" flex-gt-sm>
+        <label>MGW</label>
+        <input ng-model="container.mgw">
+    </md-input-container>
+    <md-input-container class="md-block" flex-gt-sm>
+        <label>Tare</label>
+        <input ng-model="container.tare">
+    </md-input-container>
+    <md-input-container class="md-block" flex-gt-sm>
+        <label>NET</label>
+        <input ng-model="container.net">
+    </md-input-container>
+</div>
+
+<md-button class="md-raised md-primary" ng-click="create()" ng-disabled="container.terminal == undefined || container.terminal == '' || container.container == undefined || container.container == ''">Save</md-button>
+
+</form>

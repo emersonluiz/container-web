@@ -1,0 +1,21 @@
+<md-dialog aria-label="Warning">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h3>Warning</h3>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="closeDialog()">
+                    <md-icon md-svg-src="navigation:ic_close_24px" aria-label="Ok"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <md-content layout="column" layout-align="center stretch" layout-margin flex>
+                <div></div><div>Username or password invalid!</div>
+            </md-content>
+        </md-dialog-content>
+        <md-dialog-actions layout="row" layout-margin flex>
+            <span flex></span>
+            <md-button ng-click="closeDialog()" aria-label="Ok">Ok</md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

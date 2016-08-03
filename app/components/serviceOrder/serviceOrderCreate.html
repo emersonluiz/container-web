@@ -1,0 +1,92 @@
+<!-- Top Block-->
+<div ng-include="'./app/components/shared/topbar.html'"></div>
+<!-- Top Block -->
+
+<div layout="row">
+    <md-toolbar>
+        <div class="md-toolbar-tools md-whiteframe-z1">
+            <md-button class="md-icon-button" ng-href="#serviceOrder">
+                <md-icon aria-label="Add" md-svg-icon="navigation:ic_arrow_back_24px"></md-icon>
+            </md-button>
+            <h3>
+                <span>Create Service Order</span>
+            </h3>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="open()" ng-hide="isOpenRight()">
+                <md-icon aria-label="Menu" md-svg-icon="navigation:ic_menu_24px"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+</div>
+
+<div>
+  <md-content flex layout-padding>
+    <form name="osForm">
+    <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>OS</label>
+            <input required md-no-asterisk name="os" id="os" ng-model="os.os">
+            <div ng-messages="osForm.os.$error">
+                <div ng-message="required">This is required.</div>
+            </div>
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Type</label>
+            <md-select required md-no-asterisk ng-model="os.type" name="type" id="type">
+                <md-option value="empty">Empty</md-option>
+                <md-option value="stowage">Stowage</md-option>
+            </md-select>
+            <div ng-messages="osForm.type.$error">
+                <div ng-message="required">This is required.</div>
+            </div>
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Status</label>
+            <md-select ng-model="os.status">
+                <md-option value="operating">Operating</md-option>
+                <md-option value="schedule">schedule</md-option>
+                <md-option value="waiting">waiting</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+
+    <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Vessel</label>
+            <input ng-model="os.vessel">
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Terminal</label>
+            <md-select ng-model="os.terminal">
+                <md-option value="brasmar">Brasmar</md-option>
+                <md-option value="brado">Brado</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+
+    <md-button class="md-raised md-primary" ng-click="create()" ng-disabled="os.os == undefined || os.os == '' || os.type == undefined || os.type == ''">Save</md-button>
+    </form>
+  </md-content>
+</div>
+
+<div layout="row" flex ng-show="toolBar">
+    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right" md-is-locked-open="false">
+        <md-toolbar>
+            <h1 class="md-toolbar-tools">Emerson System</h1>
+        </md-toolbar>
+        <md-content layout-padding>
+            <md-list>
+                <md-list-item>
+                    <md-button md-ink-ripple ng-href="#serviceOrder">
+                        <md-icon aria-label="Checklist" md-svg-icon="navigation:ic_menu_24px"></md-icon>Service Order
+                    </md-button>
+                </md-list-item>
+                <md-list-item>
+                    <md-button md-ink-ripple ng-click="logout()">
+                        <md-icon aria-label="Logout" md-svg-icon="action:ic_exit_to_app_24px"></md-icon>Logout
+                    </md-button>
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </md-sidenav>
+</div>

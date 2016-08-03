@@ -1,0 +1,55 @@
+<!-- Top Block-->
+<div ng-include="'./app/components/shared/topbar.html'"></div>
+<!-- Top Block -->
+
+<div layout="row">
+    <md-toolbar>
+        <div class="md-toolbar-tools md-whiteframe-z1">
+            <h3>
+                <span>Service Order</span>
+            </h3>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="open()" ng-hide="isOpenRight()">
+                <md-icon aria-label="Menu" md-svg-icon="navigation:ic_menu_24px"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+</div>
+<div ng-cloak>
+  <md-content>
+    <md-list>
+      <md-list-item class="md-3-line" ng-repeat="item in listServiceOrder">
+        <div class="md-list-item-text">
+          <h3>OS {{item.os}}</h3>
+          <h4>Vessel {{item.vessel}}</h4>
+          <h4>Terminal {{item.terminal}}</h4>
+          <p>{{item.status}}</p>
+        </div>
+        <md-button class="md-secondary md-primary" ng-href="#container">{{item.type}}</md-button>
+        <md-divider></md-divider>
+      </md-list-item>
+    </md-list>
+  </md-content>
+</div>
+
+<div layout="row" flex ng-show="toolBar">
+    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right" md-is-locked-open="false">
+        <md-toolbar>
+            <h1 class="md-toolbar-tools">Emerson System</h1>
+        </md-toolbar>
+        <md-content layout-padding>
+            <md-list>
+                <md-list-item>
+                    <md-button md-ink-ripple ng-href="#serviceOrderCreate">
+                        <md-icon aria-label="Checklist" md-svg-icon="navigation:ic_menu_24px"></md-icon>Create Service Order
+                    </md-button>
+                </md-list-item>
+                <md-list-item>
+                    <md-button md-ink-ripple ng-href="#login">
+                        <md-icon aria-label="Logout" md-svg-icon="action:ic_exit_to_app_24px"></md-icon>Logout
+                    </md-button>
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </md-sidenav>
+</div>
